@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,46 +10,119 @@
 </head>
 
 
-<body>
-   
+<body class="dark-mode">
 
-        <header class="header">
-             <p class="header__txt">Header</p>
-             <button class="header__button">Cambiar modo</button>
-        </header>
 
-        <main class="main">
-            <section class="hero">
-                <h1 class="hero__h1">Web Party DW!</h1>
-                <img class="hero__img" src="./img/horizontal.svg" alt="Un grupo de gente diversa celebrando una fiesta">
-            </section>
+    <header class="header">
+        <p class="header__txt">Header</p>
+        <button class="header__button">Cambiar modo</button>
+    </header>
 
-            <section class="container">
-                <div class="container__caja">Hazme click!</div>
-            </section>
+    <main class="main">
+        <section class="hero">
+            <h1 class="hero__h1">Web Party DW!</h1>
+            <img class="hero__img" src="./img/horizontal.svg" alt="Un grupo de gente diversa celebrando una fiesta">
+        </section>
 
-            <section class="gallery">
-                <img src="./img/grid1.svg" alt="">
-                <img src="./img/grid2.svg" alt="">
-                <img src="./img/grid3.svg" alt="">
-                <img src="./img/grid4.svg" alt="">
-                <img src="./img/grid5.svg" alt="">
-                <img src="./img/grid6.svg" alt="">
-                <img src="./img/grid7.svg" alt="">
-                <img src="./img/grid8.svg" alt="">
-                <img src="./img/grid9.svg" alt="">
-            </section>
-        </main>
+        <section class="container">
+            <div class="container__caja isActivated">
+                <p class="container__txt">Hazme click!</p>
+            </div>
 
-        <aside class="aside"> 
-            <p>Sidebar</p>
+        </section>
 
-        </aside>
+        <section class="gallery">
+            <img class="gallery__img imgActivated" src="./img/grid1.svg" alt="">
+            <img class="gallery__img" src="./img/grid2.svg" alt="monja feliz">
+            <img class="gallery__img" src="./img/grid3.svg" alt="">
+            <img class="gallery__img" src="./img/grid4.svg" alt="">
+            <img class="gallery__img" src="./img/grid5.svg" alt="">
+            <img class="gallery__img" src="./img/grid6.svg" alt="">
+            <img class="gallery__img" src="./img/grid7.svg" alt="">
+            <img class="gallery__img" src="./img/grid8.svg" alt="">
+            <img class="gallery__img" src="./img/grid9.svg" alt="">
+        </section>
+    </main>
 
-        <footer class="footer">
-            <p>Footer</p>
-        </footer>
+    <aside class="aside">
+        <h2>Sidebar</h2>
 
- 
+        <div class="acordeon">
+            <div class="acordeon__item isOpen">
+                <h3>Pregunta 1</h3>
+                <div class="acordeon__content">
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus provident quidem inventore
+                        ad,
+                        commodi tempora at obcaecati in excepturi dolorem, ratione dolore libero harum modi, iure
+                        numquam ab
+                        dignissimos voluptates? </p>
+                </div>
+            </div>
+
+            <div class="acordeon__item">
+                <h3>Pregunta 2</h3>
+                <div class="acordeon__content">
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus provident quidem inventore
+                        ad,
+                        commodi tempora at obcaecati in excepturi dolorem, ratione dolore libero harum modi, iure
+                        numquam ab
+                        dignissimos voluptates? </p>
+                </div>
+            </div>
+
+            <div class="acordeon__item">
+                <h3>Pregunta 3</h3>
+                <div class="acordeon__content">
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus provident quidem inventore
+                        ad,
+                        commodi tempora at obcaecati in excepturi dolorem, ratione dolore libero harum modi, iure
+                        numquam ab
+                        dignissimos voluptates? </p>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+
+    <footer class="footer">
+        <p>Footer</p>
+    </footer>
+
+    <script>
+
+        // BOTON HEADER: CAMBIAR
+
+        const btn = document.querySelector(".header__button");
+        const body = document.querySelector("body");
+
+        btn.addEventListener('click', () => {
+            body.classList.toggle("dark-mode");
+        });
+
+
+        // SIDEBAR ACORDEON 
+
+        const lista_items = document.querySelectorAll('.acordeon__item');
+        lista_items.forEach(item => {
+            item.addEventListener('click', () => {
+                lista_items.forEach(item => item.classList.remove('isOpen'));
+                item.classList.add('isOpen');
+            });
+        });
+
+
+        // MAIN: BOTTON ROSA 'HAZME CLICK'
+
+        const caja = document.querySelector(".container__caja");
+
+        caja.addEventListener("click", () => {
+            caja.innerHTML = "Me han activado!";
+            caja.classList.add("isActivated");
+        });
+
+        //Pd. con innerHTML no podriamos hacer que vuelva el "Hazme click" con un toggle 
+    </script>
+
 </body>
+
 </html>
